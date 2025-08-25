@@ -1,4 +1,4 @@
-# cpp-intern-projects
+# cppintenship-SuMaOnix
 
 This repository contains 3 simple C++ internship tasks:
 
