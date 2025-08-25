@@ -1,0 +1,27 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class BankAccount {
+    double balance;
+public:
+    BankAccount(double initial = 0) { balance = initial; }
+    void deposit(double amt) { if (amt > 0) balance += amt; else cout << "Invalid!\n"; }
+    void withdraw(double amt) { 
+        if (amt > 0 && amt <= balance) balance -= amt;
+        else cout << "Insufficient/Invalid!\n"; 
+    }
+    void showBalance() { cout << fixed << setprecision(2) << "Balance: $" << balance << "\n"; }
+};
+
+int main() {
+    BankAccount acc;  // starts at 0
+    int ch; double amt;
+    do {
+        cout << "\n1.Deposit  2.Withdraw  3.Balance  4.Exit\nChoice: ";
+        cin >> ch;
+        if (ch == 1) { cout << "Amount: "; cin >> amt; acc.deposit(amt); }
+        else if (ch == 2) { cout << "Amount: "; cin >> amt; acc.withdraw(amt); }
+        else if (ch == 3) acc.showBalance();
+    } while (ch != 4);
+}
